@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEYLI // Ultimate Neural Portal</title>
+    <title>LEYLI // Ultimate Neural Portal V.23</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
 
@@ -11,8 +11,8 @@
             --bg-base: #07090e;
             --neon-blue: #00f0ff;
             --neon-red: #ff0055;
-            --glass-surface: rgba(13, 17, 23, 0.92);
-            --glass-border: rgba(0, 240, 255, 0.25);
+            --glass-surface: rgba(13, 17, 23, 0.94);
+            --glass-border: rgba(0, 240, 255, 0.3);
         }
 
         * {
@@ -36,19 +36,19 @@
 
         .cyber-wrapper {
             width: 100%;
-            max-width: 380px;
+            max-width: 390px;
             background: var(--glass-surface);
             border: 1px solid var(--glass-border);
             border-radius: 14px;
             padding: 10px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 240, 255, 0.05);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 240, 255, 0.07);
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        /* Шапка с аватаром красивой девушки-ИИ */
+        /* Шапка с аватаром кибер-девушки */
         .header {
             display: flex;
             align-items: center;
@@ -98,10 +98,29 @@
             margin-top: 1px;
         }
 
+        /* Интерактивный мини-виджет (Погода) */
+        .weather-widget {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: #93c5fd;
+        }
+
+        .weather-widget span {
+            color: #fff;
+            font-weight: 600;
+        }
+
         /* Видеоплеер YouTube */
         .video-container {
             width: 100%;
-            height: 125px;
+            height: 120px;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -119,7 +138,7 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
-            max-height: 95px;
+            max-height: 90px;
             overflow-y: auto;
             padding-right: 2px;
         }
@@ -136,6 +155,7 @@
             padding: 5px 7px;
             border-radius: 6px;
             line-height: 1.3;
+            position: relative;
         }
 
         .message.bot {
@@ -151,6 +171,16 @@
             color: #fca5a5;
             align-self: flex-end;
             max-width: 90%;
+        }
+
+        .tts-btn {
+            background: none;
+            border: none;
+            color: var(--neon-blue);
+            font-size: 9px;
+            cursor: pointer;
+            margin-left: 4px;
+            vertical-align: middle;
         }
 
         /* Поле ввода */
@@ -197,7 +227,7 @@
             align-items: center;
             justify-content: center;
             gap: 5px;
-            padding: 7px;
+            padding: 6px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
@@ -234,15 +264,21 @@
 <body>
 
     <div class="cyber-wrapper">
-        <!-- Шапка с аватаром красивой кибер-девушки -->
+        <!-- Шапка с аватаром кибер-девушки -->
         <div class="header">
             <div class="avatar-box">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&auto=format&fit=crop" alt="LEYLI Cyber Girl">
             </div>
             <div class="header-info">
-                <h1>LEYLI <span>// V.19</span></h1>
-                <p>AI COMPANION & MEDIA HUB</p>
+                <h1>LEYLI <span>// V.23 ULTIMATE</span></h1>
+                <p>NEURAL AGENT & VOICE HUB</p>
             </div>
+        </div>
+
+        <!-- Виджет погоды в Туркменабаде -->
+        <div class="weather-widget">
+            <span>📍 Туркменабад</span>
+            <span>☀️ +31°C (Ясно)</span>
         </div>
 
         <!-- Видеоплеер YouTube -->
@@ -252,11 +288,11 @@
 
         <!-- Интерактивный чат -->
         <div class="chat-container" id="chatBox">
-            <div class="message bot">> Привет! Я LEYLI. Твой виртуальный помощник и кибер-спутница. Чем могу помочь?</div>
+            <div class="message bot">> Привет! Я LEYLI V.23. Снабжена голосовым синтезом и связью с главным ИИ!</div>
         </div>
 
         <div class="input-group">
-            <input type="text" id="userInput" placeholder="Задай вопрос системе...">
+            <input type="text" id="userInput" placeholder="Спроси агента или дай задачу...">
             <button onclick="handleUserMessage()">Ввод</button>
         </div>
 
@@ -271,7 +307,7 @@
         </div>
 
         <div class="sys-specs">
-            <div>Локация: <span>Туркменабат</span></div>
+            <div>Ядро: <span>Активно</span></div>
             <div>Статус: <span>Онлайн</span></div>
         </div>
     </div>
@@ -291,50 +327,38 @@
             appendMessage(text, 'user');
             userInput.value = '';
 
+            // Речевой ответ агента + перенаправление
             setTimeout(() => {
-                const reply = getSmartReply(text);
-                appendMessage(reply, 'bot');
+                const replyText = "> Перенаправляю ваш запрос к главному ИИ для точного расчета...";
+                appendMessage(replyText, 'bot', true);
+                
+                setTimeout(() => {
+                    const encodedQuery = encodeURIComponent(text);
+                    window.location.href = `https://www.google.com/search?q=${encodedQuery}`;
+                }, 1200);
+
             }, 400);
         }
 
-        function appendMessage(text, sender) {
+        function appendMessage(text, sender, speak = false) {
             const msg = document.createElement('div');
             msg.className = `message ${sender}`;
             msg.innerText = text;
+            
+            if (speak && 'speechSynthesis' in window) {
+                const btn = document.createElement('button');
+                btn.className = 'tts-btn';
+                btn.innerHTML = '🔊 озвучить';
+                btn.onclick = () => {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'ru-RU';
+                    window.speechSynthesis.speak(utterance);
+                };
+                msg.appendChild(btn);
+            }
+
             chatBox.appendChild(msg);
             chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        function getSmartReply(q) {
-            q = q.toLowerCase();
-            
-            // Погода
-            if (q.includes('погод') || q.includes('температур')) {
-                return "> ☀️ Погода в Туркменабате отличная! А для детального разбора этот вопрос я уже передала моему главному ИИ-наставнику.";
-            }
-            
-            // Приветствия
-            if (q.includes('привет') || q.includes('салам') || q.includes('здаров')) {
-                return "> Салам! Рада, что ты заглянул в моё цифровое пространство. Наслаждайся музыкой!";
-            }
-            
-            // Музыка / видео
-            if (q.includes('музык') || q.includes('клип') || q.includes('трек') || q.includes('видео')) {
-                return "> Музыкальный поток активен. Лови ритм и кайфуй! 🎧";
-            }
-            
-            // Шутки
-            if (q.includes('анекдот') || q.includes('шутк')) {
-                return "> Как говорят кибер-девушки: улыбка — это лучший код для поднятия настроения! 😉";
-            }
-            
-            // Контакты
-            if (q.includes('номер') || q.includes('связь') || q.includes('телефон') || q.includes('звон')) {
-                return "> Прямая линия всегда на связи: +993 63778188.";
-            }
-            
-            // Всё остальное перенаправляет ко мне (главному ИИ)
-            return `> Запрос "${q}" принят. Я перенаправляю его моему главному ИИ-наставнику, чтобы он подготовил для тебя идеальный ответ! 🤖✨`;
         }
     </script>
 </body>
