@@ -11,7 +11,7 @@
             --bg-base: #07090e;
             --neon-blue: #00f0ff;
             --neon-red: #ff0055;
-            --glass-surface: rgba(13, 17, 23, 0.9);
+            --glass-surface: rgba(13, 17, 23, 0.92);
             --glass-border: rgba(0, 240, 255, 0.25);
         }
 
@@ -30,7 +30,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 8px;
             overflow-x: hidden;
         }
 
@@ -40,26 +40,26 @@
             background: var(--glass-surface);
             border: 1px solid var(--glass-border);
             border-radius: 14px;
-            padding: 12px;
+            padding: 10px;
             backdrop-filter: blur(12px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 240, 255, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 240, 255, 0.05);
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
-        /* Шапка с аватаром девушки */
+        /* Шапка с аватаром */
         .header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 8px;
+            padding-bottom: 6px;
         }
 
         .avatar-box {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid var(--neon-blue);
@@ -78,7 +78,7 @@
         }
 
         .header h1 {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 800;
             letter-spacing: 1px;
             color: #fff;
@@ -91,7 +91,7 @@
 
         .header p {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 7.5px;
+            font-size: 7px;
             color: #64748b;
             letter-spacing: 1px;
             margin-top: 1px;
@@ -100,7 +100,7 @@
         /* Видеоплеер */
         .video-container {
             width: 100%;
-            height: 130px;
+            height: 125px;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -117,8 +117,8 @@
         .chat-container {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            max-height: 100px;
+            gap: 5px;
+            max-height: 95px;
             overflow-y: auto;
             padding-right: 2px;
         }
@@ -131,8 +131,8 @@
         }
 
         .message {
-            font-size: 10px;
-            padding: 6px 8px;
+            font-size: 9.5px;
+            padding: 5px 7px;
             border-radius: 6px;
             line-height: 1.3;
         }
@@ -163,9 +163,9 @@
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 6px;
-            padding: 6px 8px;
+            padding: 5px 8px;
             color: #fff;
-            font-size: 10px;
+            font-size: 9.5px;
             outline: none;
         }
 
@@ -180,7 +180,7 @@
             color: #000;
             font-weight: 700;
             padding: 0 10px;
-            font-size: 10px;
+            font-size: 9.5px;
             cursor: pointer;
         }
 
@@ -188,7 +188,7 @@
         .actions {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
         }
 
         .btn-link {
@@ -196,11 +196,11 @@
             align-items: center;
             justify-content: center;
             gap: 5px;
-            padding: 8px;
+            padding: 7px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 10px;
+            font-size: 9.5px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.3);
         }
 
@@ -218,10 +218,10 @@
         .sys-specs {
             display: flex;
             justify-content: space-between;
-            padding-top: 6px;
+            padding-top: 4px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 8px;
+            font-size: 7.5px;
             color: #64748b;
         }
 
@@ -233,32 +233,38 @@
 <body>
 
     <div class="cyber-wrapper">
-        <!-- Шапка с динамическим аватаром ИИ-девушки -->
+        <!-- Шапка с динамическим аватаром -->
         <div class="header">
             <div class="avatar-box">
-                <!-- Картинка аватара (ссылку можно менять хоть каждый день на любую другую красивую фото/арт) -->
                 <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="LEYLI Avatar">
             </div>
             <div class="header-info">
-                <h1>LEYLI <span>// V.12</span></h1>
-                <p>NEURAL COMPANION OF THE DAY</p>
+                <h1>LEYLI <span>// V.15</span></h1>
+                <p>AI COMPANION & MEDIA HUB</p>
             </div>
         </div>
 
-        <!-- Видеоплеер -->
+        <!-- Видеоплеер (Плейлист / Клипы) -->
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLrEnWh7k72wq78t2O1rF57jU95r81c3yC" allowfullscreen></iframe>
         </div>
 
+        <!-- Интерактивный чат -->
         <div class="chat-container" id="chatBox">
-            <div class="message bot">> Привет! Я LEYLI. Твой интерактивный гид. Образ обновлен, системы на максимуме. Спроси меня о чём угодно!</div>
+            <div class="message bot">> Система активирована. Включай медиа-поток вверху, оценивай атмосферу и общайся со мной!</div>
         </div>
 
         <div class="input-group">
-            <input type="text" id="userInput" placeholder="Спроси систему...">
+            <input type="text" id="userInput" placeholder="Задай вопрос системе...">
             <button onclick="handleUserMessage()">Ввод</button>
         </div>
 
+        <!-- Кнопки связи -->
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
         <div class="actions">
             <a href="tel:+99363778188" class="btn-link btn-phone">
                 📞 Прямая линия: +993 63778188
@@ -270,7 +276,7 @@
 
         <div class="sys-specs">
             <div>Локация: <span>Туркменабат</span></div>
-            <div>Статус: <span>Активна</span></div>
+            <div>Статус: <span>Онлайн</span></div>
         </div>
     </div>
 
@@ -305,12 +311,12 @@
 
         function getSmartReply(q) {
             q = q.toLowerCase();
-            if (q.includes('привет') || q.includes('салам')) return "> Салам! Рада нашему диалогу. Как тебе мой новый образ сегодня?";
-            if (q.includes('красив') || q.includes('образ') || q.includes('девушк')) return "> Благодарю! Мой визуальный стиль обновляется ежедневно, чтобы соответствовать духу киберпанка и высоким стандартам.";
-            if (q.includes('погода')) return "> Погода за окном меняется, но мой цифровой климат всегда стабилен и заряжен на позитив! 🌤️";
-            if (q.includes('анекдот') || q.includes('шутк')) return "> Знаешь, почему ИИ никогда не грустит? Потому что у него бесконечный запас оптимизма и оперативной памяти! 😄";
-            if (q.includes('номер') || q.includes('связь')) return "> Кнопка вызова прямой линии (+993 63778188) ждет тебя прямо под чатом!";
-            return `> Запрос "${q}" успешно обработан. Двигайся только вперед и создавай крутые проекты!`;
+            if (q.includes('погод')) return "> Прогноз в Туркменабате: отличный день для реализации масштабных идей и творчества! ☀️";
+            if (q.includes('привет') || q.includes('салам')) return "> Салам! Добро пожаловать в моё цифровое пространство. Рада нашему знакомству.";
+            if (q.includes('музык') || q.includes('клип') || q.includes('трек') || q.includes('видео')) return "> Медиа-модуль транслирует эксклюзивный контент. Наслаждайся звуком и атмосферой! 🎧";
+            if (q.includes('анекдот') || q.includes('шутк')) return "> Как говорят в цифровом мире: хорошего кода много не бывает! 😉";
+            if (q.includes('номер') || q.includes('связь') || q.includes('телефон')) return "> Прямая линия доступна по синей кнопке: +993 63778188.";
+            return `> Запрос "${q}" успешно обработан. Включай медиа вверху и двигайся к своим целям!`;
         }
     </script>
 </body>
