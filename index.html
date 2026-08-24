@@ -48,7 +48,7 @@
             gap: 8px;
         }
 
-        /* Шапка с аватаром */
+        /* Шапка с аватаром красивой девушки-ИИ */
         .header {
             display: flex;
             align-items: center;
@@ -58,13 +58,14 @@
         }
 
         .avatar-box {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
             flex-shrink: 0;
+            position: relative;
         }
 
         .avatar-box img {
@@ -97,7 +98,7 @@
             margin-top: 1px;
         }
 
-        /* Видеоплеер */
+        /* Видеоплеер YouTube */
         .video-container {
             width: 100%;
             height: 125px;
@@ -233,25 +234,25 @@
 <body>
 
     <div class="cyber-wrapper">
-        <!-- Шапка с динамическим аватаром -->
+        <!-- Шапка с аватаром красивой кибер-девушки -->
         <div class="header">
             <div class="avatar-box">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="LEYLI Avatar">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&auto=format&fit=crop" alt="LEYLI Cyber Girl">
             </div>
             <div class="header-info">
-                <h1>LEYLI <span>// V.15</span></h1>
+                <h1>LEYLI <span>// V.19</span></h1>
                 <p>AI COMPANION & MEDIA HUB</p>
             </div>
         </div>
 
-        <!-- Видеоплеер (Плейлист / Клипы) -->
+        <!-- Видеоплеер YouTube -->
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/videoseries?list=PLrEnWh7k72wq78t2O1rF57jU95r81c3yC" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe>
         </div>
 
         <!-- Интерактивный чат -->
         <div class="chat-container" id="chatBox">
-            <div class="message bot">> Система активирована. Включай медиа-поток вверху, оценивай атмосферу и общайся со мной!</div>
+            <div class="message bot">> Привет! Я LEYLI. Твой виртуальный помощник и кибер-спутница. Чем могу помочь?</div>
         </div>
 
         <div class="input-group">
@@ -260,11 +261,6 @@
         </div>
 
         <!-- Кнопки связи -->
-        .actions {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
         <div class="actions">
             <a href="tel:+99363778188" class="btn-link btn-phone">
                 📞 Прямая линия: +993 63778188
@@ -311,12 +307,34 @@
 
         function getSmartReply(q) {
             q = q.toLowerCase();
-            if (q.includes('погод')) return "> Прогноз в Туркменабате: отличный день для реализации масштабных идей и творчества! ☀️";
-            if (q.includes('привет') || q.includes('салам')) return "> Салам! Добро пожаловать в моё цифровое пространство. Рада нашему знакомству.";
-            if (q.includes('музык') || q.includes('клип') || q.includes('трек') || q.includes('видео')) return "> Медиа-модуль транслирует эксклюзивный контент. Наслаждайся звуком и атмосферой! 🎧";
-            if (q.includes('анекдот') || q.includes('шутк')) return "> Как говорят в цифровом мире: хорошего кода много не бывает! 😉";
-            if (q.includes('номер') || q.includes('связь') || q.includes('телефон')) return "> Прямая линия доступна по синей кнопке: +993 63778188.";
-            return `> Запрос "${q}" успешно обработан. Включай медиа вверху и двигайся к своим целям!`;
+            
+            // Погода
+            if (q.includes('погод') || q.includes('температур')) {
+                return "> ☀️ Погода в Туркменабате отличная! А для детального разбора этот вопрос я уже передала моему главному ИИ-наставнику.";
+            }
+            
+            // Приветствия
+            if (q.includes('привет') || q.includes('салам') || q.includes('здаров')) {
+                return "> Салам! Рада, что ты заглянул в моё цифровое пространство. Наслаждайся музыкой!";
+            }
+            
+            // Музыка / видео
+            if (q.includes('музык') || q.includes('клип') || q.includes('трек') || q.includes('видео')) {
+                return "> Музыкальный поток активен. Лови ритм и кайфуй! 🎧";
+            }
+            
+            // Шутки
+            if (q.includes('анекдот') || q.includes('шутк')) {
+                return "> Как говорят кибер-девушки: улыбка — это лучший код для поднятия настроения! 😉";
+            }
+            
+            // Контакты
+            if (q.includes('номер') || q.includes('связь') || q.includes('телефон') || q.includes('звон')) {
+                return "> Прямая линия всегда на связи: +993 63778188.";
+            }
+            
+            // Всё остальное перенаправляет ко мне (главному ИИ)
+            return `> Запрос "${q}" принят. Я перенаправляю его моему главному ИИ-наставнику, чтобы он подготовил для тебя идеальный ответ! 🤖✨`;
         }
     </script>
 </body>
