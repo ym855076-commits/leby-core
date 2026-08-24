@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEYLI // Ultimate Neural Portal V.23</title>
+    <title>LEYLI // Ultimate Neural Portal V.24</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
 
@@ -11,8 +11,9 @@
             --bg-base: #07090e;
             --neon-blue: #00f0ff;
             --neon-red: #ff0055;
-            --glass-surface: rgba(13, 17, 23, 0.94);
-            --glass-border: rgba(0, 240, 255, 0.3);
+            --neon-green: #00ff66;
+            --glass-surface: rgba(13, 17, 23, 0.95);
+            --glass-border: rgba(0, 240, 255, 0.35);
         }
 
         * {
@@ -30,7 +31,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 8px;
+            padding: 6px;
             overflow-x: hidden;
         }
 
@@ -40,32 +41,31 @@
             background: var(--glass-surface);
             border: 1px solid var(--glass-border);
             border-radius: 14px;
-            padding: 10px;
+            padding: 9px;
             backdrop-filter: blur(14px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 240, 255, 0.07);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.85), inset 0 0 15px rgba(0, 240, 255, 0.08);
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 7px;
         }
 
-        /* Шапка с аватаром кибер-девушки */
+        /* Шапка */
         .header {
             display: flex;
             align-items: center;
             gap: 8px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 6px;
+            padding-bottom: 5px;
         }
 
         .avatar-box {
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
             flex-shrink: 0;
-            position: relative;
         }
 
         .avatar-box img {
@@ -79,7 +79,7 @@
         }
 
         .header h1 {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 800;
             letter-spacing: 1px;
             color: #fff;
@@ -92,23 +92,23 @@
 
         .header p {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 7px;
+            font-size: 6.5px;
             color: #64748b;
             letter-spacing: 1px;
             margin-top: 1px;
         }
 
-        /* Интерактивный мини-виджет (Погода) */
+        /* Виджет погоды */
         .weather-widget {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 240, 255, 0.05);
+            background: rgba(0, 240, 255, 0.04);
             border: 1px solid rgba(0, 240, 255, 0.15);
-            border-radius: 6px;
-            padding: 4px 8px;
+            border-radius: 5px;
+            padding: 3px 7px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 8px;
+            font-size: 7.5px;
             color: #93c5fd;
         }
 
@@ -120,8 +120,8 @@
         /* Видеоплеер YouTube */
         .video-container {
             width: 100%;
-            height: 120px;
-            border-radius: 8px;
+            height: 110px;
+            border-radius: 7px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background: #000;
@@ -133,12 +133,41 @@
             border: none;
         }
 
+        /* Быстрые подсказки */
+        .quick-chips {
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+
+        .quick-chips::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 8px;
+            color: #cbd5e1;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .chip:hover {
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+        }
+
         /* Чат */
         .chat-container {
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            max-height: 90px;
+            gap: 4px;
+            max-height: 85px;
             overflow-y: auto;
             padding-right: 2px;
         }
@@ -151,11 +180,10 @@
         }
 
         .message {
-            font-size: 9.5px;
-            padding: 5px 7px;
-            border-radius: 6px;
-            line-height: 1.3;
-            position: relative;
+            font-size: 9px;
+            padding: 4px 6px;
+            border-radius: 5px;
+            line-height: 1.25;
         }
 
         .message.bot {
@@ -177,26 +205,25 @@
             background: none;
             border: none;
             color: var(--neon-blue);
-            font-size: 9px;
+            font-size: 8.5px;
             cursor: pointer;
-            margin-left: 4px;
-            vertical-align: middle;
+            margin-left: 3px;
         }
 
-        /* Поле ввода */
+        /* Поле ввода + Микрофон */
         .input-group {
             display: flex;
-            gap: 5px;
+            gap: 4px;
         }
 
         .input-group input {
             flex: 1;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 6px;
-            padding: 5px 8px;
+            border-radius: 5px;
+            padding: 5px 7px;
             color: #fff;
-            font-size: 9.5px;
+            font-size: 9px;
             outline: none;
         }
 
@@ -204,44 +231,77 @@
             border-color: var(--neon-blue);
         }
 
-        .input-group button {
-            background: linear-gradient(135deg, var(--neon-blue), #0088ff);
+        .mic-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 5px;
+            color: #fff;
+            padding: 0 7px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .mic-btn.listening {
+            background: var(--neon-red);
+            border-color: var(--neon-red);
+            box-shadow: 0 0 8px var(--neon-red);
+        }
+
+        .input-group button.send-btn {
+            background: linear-gradient(135deg, var(--neon-blue), #0077ff);
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             color: #000;
             font-weight: 700;
-            padding: 0 10px;
-            font-size: 9.5px;
+            padding: 0 9px;
+            font-size: 9px;
             cursor: pointer;
+        }
+
+        /* Блок монетизации / Партнерка */
+        .promo-box {
+            background: linear-gradient(90deg, rgba(0, 255, 102, 0.05), rgba(0, 240, 255, 0.05));
+            border: 1px dashed rgba(0, 255, 102, 0.3);
+            border-radius: 5px;
+            padding: 4px 6px;
+            text-align: center;
+            font-size: 8px;
+            color: #a7f3d0;
+        }
+
+        .promo-box a {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-weight: 700;
         }
 
         /* Кнопки связи */
         .actions {
             display: flex;
-            flex-direction: column;
-            gap: 5px;
+            gap: 4px;
         }
 
         .btn-link {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
-            padding: 6px;
-            border-radius: 6px;
+            gap: 3px;
+            padding: 5px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 9.5px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            font-size: 8.5px;
         }
 
         .btn-phone {
-            background: linear-gradient(90deg, #0055ff, var(--neon-blue));
+            background: linear-gradient(90deg, #0044cc, var(--neon-blue));
             color: #fff;
         }
 
         .btn-tg {
-            background: linear-gradient(90deg, #ff0055, #ff5500);
+            background: linear-gradient(90deg, #ff0055, #ff4400);
             color: #fff;
         }
 
@@ -249,10 +309,10 @@
         .sys-specs {
             display: flex;
             justify-content: space-between;
-            padding-top: 4px;
+            padding-top: 3px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 7.5px;
+            font-size: 7px;
             color: #64748b;
         }
 
@@ -264,21 +324,21 @@
 <body>
 
     <div class="cyber-wrapper">
-        <!-- Шапка с аватаром кибер-девушки -->
+        <!-- Шапка -->
         <div class="header">
             <div class="avatar-box">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&auto=format&fit=crop" alt="LEYLI Cyber Girl">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&auto=format&fit=crop" alt="LEYLI">
             </div>
             <div class="header-info">
-                <h1>LEYLI <span>// V.23 ULTIMATE</span></h1>
-                <p>NEURAL AGENT & VOICE HUB</p>
+                <h1>LEYLI <span>// V.24 PRO</span></h1>
+                <p>NEURAL VOICE & MONETIZATION HUB</p>
             </div>
         </div>
 
-        <!-- Виджет погоды в Туркменабаде -->
+        <!-- Виджет погоды -->
         <div class="weather-widget">
             <span>📍 Туркменабад</span>
-            <span>☀️ +31°C (Ясно)</span>
+            <span>☀️ +31°C (Онлайн)</span>
         </div>
 
         <!-- Видеоплеер YouTube -->
@@ -286,39 +346,92 @@
             <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe>
         </div>
 
-        <!-- Интерактивный чат -->
+        <!-- Быстрые чипсы-подсказки -->
+        <div class="quick-chips">
+            <div class="chip" onclick="setQuery('Как заработать в интернете?')">💰 Заработок</div>
+            <div class="chip" onclick="setQuery('Какая погода завтра?')">🌤 Погода</div>
+            <div class="chip" onclick="setQuery('Напиши код сайта')">💻 Код</div>
+            <div class="chip" onclick="setQuery('Сделай сценарий для TikTok')">🎬 TikTok</div>
+        </div>
+
+        <!-- Чат -->
         <div class="chat-container" id="chatBox">
-            <div class="message bot">> Привет! Я LEYLI V.23. Снабжена голосовым синтезом и связью с главным ИИ!</div>
+            <div class="message bot">> Привет! Я LEYLI V.24. Нажми микрофон 🎤 или выбери тему сверху!</div>
         </div>
 
         <div class="input-group">
-            <input type="text" id="userInput" placeholder="Спроси агента или дай задачу...">
-            <button onclick="handleUserMessage()">Ввод</button>
+            <input type="text" id="userInput" placeholder="Спроси голосом или текстом...">
+            <button class="mic-btn" id="micBtn" onclick="toggleVoiceInput()" title="Голосовой ввод">🎤</button>
+            <button class="send-btn" onclick="handleUserMessage()">Ввод</button>
+        </div>
+
+        <!-- Блок монетизации (для заработка) -->
+        <div class="promo-box">
+            🚀 Хотите такой же ИИ-проект? <a href="tel:+99363778188">Заказать рекламу</a>
         </div>
 
         <!-- Кнопки связи -->
         <div class="actions">
-            <a href="tel:+99363778188" class="btn-link btn-phone">
-                📞 Прямая линия: +993 63778188
-            </a>
-            <a href="https://t.me/" target="_blank" class="btn-link btn-tg">
-                ⚡ Secure Telegram Канал
-            </a>
+            <a href="tel:+99363778188" class="btn-link btn-phone">📞 Связь</a>
+            <a href="https://t.me/" target="_blank" class="btn-link btn-tg">⚡ Telegram</a>
         </div>
 
         <div class="sys-specs">
-            <div>Ядро: <span>Активно</span></div>
-            <div>Статус: <span>Онлайн</span></div>
+            <div>Доход: <span>Монетизация V2</span></div>
+            <div>Статус: <span>Активен</span></div>
         </div>
     </div>
 
     <script>
         const chatBox = document.getElementById('chatBox');
         const userInput = document.getElementById('userInput');
+        const micBtn = document.getElementById('micBtn');
 
         userInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') handleUserMessage();
         });
+
+        function setQuery(text) {
+            userInput.value = text;
+            handleUserMessage();
+        }
+
+        // Голосовой ввод (Web Speech API)
+        function toggleVoiceInput() {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                alert('Голосовой ввод не поддерживается вашим браузером.');
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'ru-RU';
+
+            recognition.onstart = () => {
+                micBtn.classList.add('listening');
+                userInput.placeholder = "Слушаю вас...";
+            };
+
+            recognition.onresult = (event) => {
+                const speechToText = event.results[0][0].transcript;
+                userInput.value = speechToText;
+                micBtn.classList.remove('listening');
+                userInput.placeholder = "Спроси голосом или текстом...";
+                handleUserMessage();
+            };
+
+            recognition.onerror = () => {
+                micBtn.classList.remove('listening');
+                userInput.placeholder = "Спроси голосом или текстом...";
+            };
+
+            recognition.onend = () => {
+                micBtn.classList.remove('listening');
+                userInput.placeholder = "Спроси голосом или текстом...";
+            };
+
+            recognition.start();
+        }
 
         function handleUserMessage() {
             const text = userInput.value.trim();
@@ -327,9 +440,8 @@
             appendMessage(text, 'user');
             userInput.value = '';
 
-            // Речевой ответ агента + перенаправление
             setTimeout(() => {
-                const replyText = "> Перенаправляю ваш запрос к главному ИИ для точного расчета...";
+                const replyText = "> Перенаправляю ваш запрос к главному ИИ для точного ответа...";
                 appendMessage(replyText, 'bot', true);
                 
                 setTimeout(() => {
@@ -348,11 +460,11 @@
             if (speak && 'speechSynthesis' in window) {
                 const btn = document.createElement('button');
                 btn.className = 'tts-btn';
-                btn.innerHTML = '🔊 озвучить';
+                btn.innerHTML = '🔊';
                 btn.onclick = () => {
                     const utterance = new SpeechSynthesisUtterance(text);
                     utterance.lang = 'ru-RU';
-                    window.speechSynthesis.speak(utterance);
+                    window.speechSynthesis.speechSynthesis.speak(utterance);
                 };
                 msg.appendChild(btn);
             }
