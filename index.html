@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEYLI // Ultimate Neural Portal V.25</title>
+    <title>LEYLI // Ultimate Neural Portal V.26</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
 
         :root {
-            --bg-base: #07090e;
+            --bg-base: #05070a;
             --neon-blue: #00f0ff;
             --neon-red: #ff0055;
             --neon-green: #00ff66;
-            --glass-surface: rgba(13, 17, 23, 0.96);
-            --glass-border: rgba(0, 240, 255, 0.4);
+            --glass-surface: rgba(10, 14, 20, 0.98);
+            --glass-border: rgba(0, 240, 255, 0.5);
         }
 
         * {
@@ -30,41 +30,42 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 4px;
+            justify-content: flex-start;
+            padding: 0;
+            margin: 0;
+            width: 100vw;
             overflow-x: hidden;
         }
 
         .cyber-wrapper {
-            width: 96%;
-            max-width: 460px;
+            width: 100%;
+            min-height: 100vh;
             background: var(--glass-surface);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 12px;
-            backdrop-filter: blur(16px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(0, 240, 255, 0.1);
+            border: none;
+            border-radius: 0;
+            padding: 14px;
+            box-shadow: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         /* Шапка */
         .header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 8px;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            padding-bottom: 10px;
         }
 
         .avatar-box {
-            width: 48px;
-            height: 48px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 14px rgba(0, 240, 255, 0.6);
+            box-shadow: 0 0 16px rgba(0, 240, 255, 0.7);
             flex-shrink: 0;
         }
 
@@ -79,11 +80,11 @@
         }
 
         .header h1 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 800;
             letter-spacing: 1px;
             color: #fff;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
         }
 
         .header h1 span {
@@ -92,10 +93,10 @@
 
         .header p {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 7.5px;
+            font-size: 8.5px;
             color: #94a3b8;
             letter-spacing: 1px;
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
         /* Виджет погоды */
@@ -103,12 +104,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 240, 255, 0.05);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            border-radius: 6px;
-            padding: 5px 10px;
+            background: rgba(0, 240, 255, 0.06);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 8px;
+            padding: 8px 12px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
+            font-size: 10px;
             color: #93c5fd;
         }
 
@@ -117,14 +118,15 @@
             font-weight: 600;
         }
 
-        /* Видеоплеер YouTube */
+        /* Видеоплеер YouTube (крупный) */
         .video-container {
             width: 100%;
-            height: 160px;
-            border-radius: 8px;
+            height: 210px;
+            border-radius: 10px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             background: #000;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
         }
 
         .video-container iframe {
@@ -136,9 +138,9 @@
         /* Быстрые подсказки */
         .quick-chips {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             overflow-x: auto;
-            padding-bottom: 2px;
+            padding-bottom: 4px;
         }
 
         .quick-chips::-webkit-scrollbar {
@@ -146,11 +148,11 @@
         }
 
         .chip {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 5px;
-            padding: 4px 8px;
-            font-size: 9.5px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 11px;
             color: #cbd5e1;
             white-space: nowrap;
             cursor: pointer;
@@ -166,36 +168,36 @@
         .chat-container {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            max-height: 110px;
+            gap: 8px;
+            max-height: 150px;
             overflow-y: auto;
-            padding-right: 3px;
+            padding-right: 4px;
         }
 
         .chat-container::-webkit-scrollbar {
-            width: 3px;
+            width: 4px;
         }
         .chat-container::-webkit-scrollbar-thumb {
             background: var(--neon-blue);
         }
 
         .message {
-            font-size: 10.5px;
-            padding: 6px 9px;
-            border-radius: 6px;
-            line-height: 1.35;
+            font-size: 12px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            line-height: 1.4;
         }
 
         .message.bot {
-            background: rgba(0, 240, 255, 0.08);
-            border-left: 2px solid var(--neon-blue);
+            background: rgba(0, 240, 255, 0.09);
+            border-left: 3px solid var(--neon-blue);
             color: #93c5fd;
             font-family: 'JetBrains Mono', monospace;
         }
 
         .message.user {
-            background: rgba(255, 0, 85, 0.09);
-            border-right: 2px solid var(--neon-red);
+            background: rgba(255, 0, 85, 0.1);
+            border-right: 3px solid var(--neon-red);
             color: #fca5a5;
             align-self: flex-end;
             max-width: 90%;
@@ -205,25 +207,25 @@
             background: none;
             border: none;
             color: var(--neon-blue);
-            font-size: 9.5px;
+            font-size: 11px;
             cursor: pointer;
-            margin-left: 4px;
+            margin-left: 6px;
         }
 
         /* Поле ввода + Микрофон */
         .input-group {
             display: flex;
-            gap: 6px;
+            gap: 8px;
         }
 
         .input-group input {
             flex: 1;
-            background: rgba(0, 0, 0, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 7px;
-            padding: 8px 10px;
+            background: rgba(0, 0, 0, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 10px 14px;
             color: #fff;
-            font-size: 10.5px;
+            font-size: 12px;
             outline: none;
         }
 
@@ -232,12 +234,12 @@
         }
 
         .mic-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 7px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 8px;
             color: #fff;
-            padding: 0 10px;
-            font-size: 13px;
+            padding: 0 14px;
+            font-size: 15px;
             cursor: pointer;
             transition: 0.2s;
         }
@@ -245,28 +247,28 @@
         .mic-btn.listening {
             background: var(--neon-red);
             border-color: var(--neon-red);
-            box-shadow: 0 0 10px var(--neon-red);
+            box-shadow: 0 0 12px var(--neon-red);
         }
 
         .input-group button.send-btn {
             background: linear-gradient(135deg, var(--neon-blue), #0077ff);
             border: none;
-            border-radius: 7px;
+            border-radius: 8px;
             color: #000;
             font-weight: 700;
-            padding: 0 14px;
-            font-size: 10.5px;
+            padding: 0 18px;
+            font-size: 12px;
             cursor: pointer;
         }
 
         /* Блок монетизации */
         .promo-box {
-            background: linear-gradient(90deg, rgba(0, 255, 102, 0.06), rgba(0, 240, 255, 0.06));
-            border: 1px dashed rgba(0, 255, 102, 0.35);
-            border-radius: 6px;
-            padding: 6px 8px;
+            background: linear-gradient(90deg, rgba(0, 255, 102, 0.08), rgba(0, 240, 255, 0.08));
+            border: 1px dashed rgba(0, 255, 102, 0.4);
+            border-radius: 8px;
+            padding: 8px 12px;
             text-align: center;
-            font-size: 9px;
+            font-size: 10px;
             color: #a7f3d0;
         }
 
@@ -279,7 +281,7 @@
         /* Кнопки связи */
         .actions {
             display: flex;
-            gap: 6px;
+            gap: 8px;
         }
 
         .btn-link {
@@ -287,12 +289,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
-            padding: 8px;
-            border-radius: 7px;
+            gap: 6px;
+            padding: 11px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 10px;
+            font-size: 12px;
         }
 
         .btn-phone {
@@ -309,10 +311,10 @@
         .sys-specs {
             display: flex;
             justify-content: space-between;
-            padding-top: 5px;
+            padding-top: 8px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 8px;
+            font-size: 9px;
             color: #94a3b8;
         }
 
@@ -330,7 +332,7 @@
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&auto=format&fit=crop" alt="LEYLI">
             </div>
             <div class="header-info">
-                <h1>LEYLI <span>// V.25 PRO MAX</span></h1>
+                <h1>LEYLI <span>// V.26 MAXIMUS</span></h1>
                 <p>NEURAL VOICE & MONETIZATION HUB</p>
             </div>
         </div>
@@ -356,7 +358,7 @@
 
         <!-- Чат -->
         <div class="chat-container" id="chatBox">
-            <div class="message bot">> Привет! Я LEYLI V.25. Теперь интерфейс выглядит солидно и масштабно на весь экран!</div>
+            <div class="message bot">> Привет! Я LEYLI V.26. Теперь я растянута на полный экран смартфона!</div>
         </div>
 
         <div class="input-group">
@@ -377,7 +379,7 @@
         </div>
 
         <div class="sys-specs">
-            <div>Масштаб: <span>Full Screen</span></div>
+            <div>Масштаб: <span>100% Screen</span></div>
             <div>Статус: <span>Активен</span></div>
         </div>
     </div>
